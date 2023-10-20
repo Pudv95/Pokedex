@@ -7,6 +7,8 @@ class PokeCardModel{
 
   PokeCardModel({required this.name,required this.avatar,required this.type});
 
-  PokeCardModel.fromMap(Map<String,dynamic> model):name = model['name'],type = model['type'],avatar = model['avatar'];
-
+  factory PokeCardModel.fromJSON(Map<String,dynamic> model) {
+    return PokeCardModel(
+        name: model['name'], type: '', avatar: '');
+  }
 }
