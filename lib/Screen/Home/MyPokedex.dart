@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/Control/get_poke_data.dart';
 import 'package:pokedex/Model/poke_card_model.dart';
-import 'package:pokedex/Screen/Widgets/poke_card.dart';
+
+import 'Widgets/poke_card.dart';
 
 class MyPokedex extends StatefulWidget {
   MyPokedex({super.key});
@@ -33,7 +34,6 @@ class _MyPokedexState extends State<MyPokedex> {
                       builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
                         if(snapshot.connectionState == ConnectionState.done){
                           PokeCardModel pokeCardModel = snapshot.data;
-                          print(pokeCardModel.avatar);
                           return PokeCard(pokeCardModel: pokeCardModel);
                         }
                         else{
@@ -42,7 +42,7 @@ class _MyPokedexState extends State<MyPokedex> {
                     },);
                   });
             }else{
-              return  Center(child: ElevatedButton(onPressed: (){getAllPokemons();}, child: const Text('test')));
+              return  const Center(child: CircularProgressIndicator(),);
             }
           },),
       ),

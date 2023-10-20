@@ -24,7 +24,6 @@ Future<PokeCardModel?> getPokeData(PokeCardModel pokemon) async {
     var data = json.decode(response.body);
     pokemon.avatar = (data['sprites']['other']['dream_world']['front_default']);
     pokemon.type = (data['types'][0]['type']['name']);
-    // print(pokemon as Map);
     return pokemon;
   }
 
